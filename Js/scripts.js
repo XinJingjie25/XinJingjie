@@ -39,9 +39,9 @@ document.addEventListener('click', (event) => {
 document.addEventListener('DOMContentLoaded', () => {
     const banner = document.querySelector('.banner');
     const slides = [
-        'url("../img/slide1.jpg")',
-        'url("../img/slide2.jpg")',
-        'url("../img/slide3.jpg")'
+        'url("./img/slide1.jpg")',
+        'url("./img/slide2.jpg")',
+        'url("./img/slide3.jpg")'
     ];
     let currentSlide = 0;
 
@@ -95,9 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     const images = [
-        '../img/intro1.jpg',
-        '../img/intro2.jpg',
-        '../img/intro3.jpg'
+        './img/intro1.jpg',
+        './img/intro2.jpg',
+        './img/intro3.jpg'
     ];
     let currentIndex = 0;
 
