@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.querySelector('.next-btn');
     const images = [
         './img/intro1.jpg',
-        './img/intro2.jpg',
+        './img/certificate.png',
         './img/intro3.jpg'
     ];
     let currentIndex = 0;
@@ -148,4 +148,78 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.2 });
 
     observer.observe(aboutSection);
+});
+// Customer visit
+ document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.querySelector('.customer-visit-carousel');
+    const container = document.querySelector('.carousel-container');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    let currentIndex = 0;
+    let startX = 0;
+    let isDragging = false;
+
+    function updateCarousel() {
+        const slidesPerView = window.innerWidth >= 768 ? 3 : 2;
+        const maxIndex = slides.length - slidesPerView;
+        if (currentIndex > maxIndex) {
+            currentIndex = maxIndex; // Giới hạn chỉ hiển thị số ảnh tối đa, không để khoảng trắng
+        }
+        container.style.transform = `translateX(-${currentIndex * (100 / slidesPerView)}%)`;
+    }
+
+    function showSlide(index) {
+        const slidesPerView = window.innerWidth >= 768 ? 3 : 2;
+        const maxIndex = slides.length - slidesPerView;
+        currentIndex = Math.max(0, Math.min(index, maxIndex)); // Loại bỏ vòng lặp, giới hạn index
+        updateCarousel();
+    }
+
+    prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
+    nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
+
+    container.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const slidesPerView = window.innerWidth >= 768 ? 3 : 2;
+        const maxIndex = slides.length - slidesPerView;
+        if (e.deltaY < 0) showSlide(currentIndex - 1);
+        else showSlide(currentIndex + 1);
+    });
+
+    container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX - container.offsetLeft;
+    });
+
+    container.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const currentX = e.pageX - container.offsetLeft;
+        const diffX = startX - currentX;
+        const slidesPerView = window.innerWidth >= 768 ? 3 : 2;
+        const maxIndex = slides.length - slidesPerView;
+        if (diffX > 50) showSlide(currentIndex + 1);
+        else if (diffX < -50) showSlide(currentIndex - 1);
+    });
+
+    container.addEventListener('mouseup', () => isDragging = false);
+    container.addEventListener('mouseleave', () => isDragging = false);
+
+    container.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].pageX;
+    });
+
+    container.addEventListener('touchmove', (e) => {
+        const currentX = e.touches[0].pageX;
+        const diffX = startX - currentX;
+        const slidesPerView = window.innerWidth >= 768 ? 3 : 2;
+        const maxIndex = slides.length - slidesPerView;
+        if (diffX > 50) showSlide(currentIndex + 1);
+        else if (diffX < -50) showSlide(currentIndex - 1);
+        startX = currentX;
+    });
+
+    window.addEventListener('resize', updateCarousel);
+    updateCarousel();
 });
