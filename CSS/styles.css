@@ -665,7 +665,156 @@ footer {
 .carousel-next {
     right: 10px;
 }
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Container cho nút liên hệ */
+.contact-fixed {
+    position: fixed;
+    top: 85%;
+    right: 15px;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+/* Nút toggle chính */
+.contact-toggle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+}
+
+.contact-toggle img {
+    width: 40px;
+    height: 40px;
+}
+
+.contact-toggle:hover {
+    transform: scale(1.1);
+    background-color: #6f7276;
+    animation-play-state: paused;
+}
+
+/* Hiệu ứng animation khi hover */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Danh sách các nút con */
+.contact-list {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Hiển thị khi active */
+.contact-list.active {
+    display: flex;
+}
+
+/* Mỗi nút liên hệ */
+.contact-item {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.contact-item img {
+    width: 40px;
+    height: 40px;
+}
+
+.contact-item:hover {
+    transform: scale(1.1);
+    background-color: #6f7276;
+}
+
+/* Hiệu ứng trượt lên khi hiện và trượt xuống khi ẩn */
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes slideFadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+}
+
+/* Kích hoạt khi hiện */
+.contact-list.active .contact-item {
+    animation: slideFadeIn 0.3s ease-in-out forwards;
+}
+
+/* Kích hoạt khi thu hồi */
+.contact-list:not(.active) .contact-item {
+    animation: slideFadeOut 0.4s ease-in-out forwards;
+}
+
+/* Delay tăng cảm giác lan tỏa từ dưới lên */
+.contact-list.active .contact-item:nth-child(1) { animation-delay: 0.1s; }
+.contact-list.active .contact-item:nth-child(2) { animation-delay: 0.15s; }
+.contact-list.active .contact-item:nth-child(3) { animation-delay: 0.20s; }
+
+/* Delay ngược khi ẩn để thu gọn từng nút */
+.contact-list:not(.active) .contact-item:nth-child(1) { animation-delay: 0.15s; }
+.contact-list:not(.active) .contact-item:nth-child(2) { animation-delay: 0.1s; }
+.contact-list:not(.active) .contact-item:nth-child(3) { animation-delay: 0.05s; }
+
+
+
+/* Hiệu ứng animation khi hover */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.contact-item:hover {
+    animation: pulse 0.5s infinite;
+}
 @media (max-width: 768px) {
     .carousel-slide {
         flex: 0 0 calc(50% - 10px); /* Căn đều cho 2 ảnh trên mobile */

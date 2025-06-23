@@ -223,3 +223,10 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', updateCarousel);
     updateCarousel();
 });
+const toggleButton = document.querySelector('.contact-toggle');
+const contactList = document.querySelector('.contact-list');
+
+toggleButton.addEventListener('click', () => {
+    contactList.classList.toggle('active');
+    toggleButton.classList.toggle('active');
+});
