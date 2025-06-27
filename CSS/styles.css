@@ -54,6 +54,7 @@ header {
     background-color: #be253e;
 }
 
+/* Hamburger menu styles */
 .hamburger {
     display: none;
     font-size: 24px;
@@ -61,10 +62,42 @@ header {
     color: #333333;
     padding: 10px;
     transition: color 0.3s ease;
+    position: relative;
+    z-index: 1001;
 }
 
 .hamburger:hover {
     color: #be253e;
+}
+
+.hamburger-icon, .close-icon {
+    display: inline-block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.close-icon {
+    display: none;
+    font-size: 20px;
+}
+
+.hamburger.active .hamburger-icon {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.hamburger.active .close-icon {
+    display: inline-block;
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -76,17 +109,17 @@ header {
         right: -100%;
         height: 100vh;
         width: 280px;
-        background-color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(5px);
-        box-shadow: -2px 0 5px rgba(51, 51, 51, 0.1);
+        background-color: #ffffff;
+        box-shadow: -5px 0 15px rgba(51, 51, 51, 0.2);
         padding: 80px 20px 20px;
-        transition: right 0.3s ease;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 999;
     }
 
     .nav-menu ul.active {
         display: flex;
         right: 0;
+        opacity: 1;
     }
 
     .nav-menu a {
@@ -95,6 +128,15 @@ header {
         margin: 5px 0;
         display: block;
         text-align: left;
+        color: #333333;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+        background-color: #be253e;
+        color: #ffffff;
+        transform: translateX(10px);
     }
 
     .hamburger {
@@ -103,14 +145,6 @@ header {
 }
 
 @media (max-width: 480px) {
-    .logo img {
-        width: 120px;
-    }
-
-    .hamburger {
-        font-size: 20px;
-    }
-
     .nav-menu ul {
         width: 200px;
         padding: 60px 15px 15px;
@@ -120,8 +154,11 @@ header {
         font-size: 16px;
         padding: 10px 15px;
     }
-}
 
+    .hamburger {
+        font-size: 20px;
+    }
+}
 .banner {
     height: 100vh;
     position: relative;
@@ -223,6 +260,10 @@ header {
 .btn-product:hover::after {
     left: 100%;
 }
+.product-card {
+    text-decoration: none;
+}
+
 
 .section {
     padding: 60px 20px;
@@ -322,6 +363,7 @@ header {
     max-width: 1200px;
 
 }
+
 
 @media (max-width: 1200px) {
     .intro-content {

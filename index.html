@@ -6,23 +6,26 @@
     <title>Khóa cửa Xin Jingjie</title>
     <link rel="stylesheet" href="./CSS/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="./img/Lh.png">
+    <link rel="icon" type="image/x-icon" href="./img/LogoWeb2.png">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="index.html"><img src="./img/logo.png" alt="Logo" width="150"></a>
+<header>
+    <div class="logo">
+        <a href="index.html"><img src="./img/logo.png" alt="Logo" width="150"></a>
+    </div>
+    <nav class="nav-menu">
+        <div class="hamburger" onclick="toggleMenu()">
+            <span class="hamburger-icon">☰</span>
+            <span class="close-icon">✕</span>
         </div>
-        <nav class="nav-menu">
-            <div class="hamburger" onclick="toggleMenu()">☰</div>
-            <ul id="nav-links">
-                <li><a href="index.html">Trang chủ</a></li>
-                <li><a href="#about">Giới thiệu</a></li>
-                <li><a href="#products">Sản phẩm</a></li>
-                <li><a href="#contact">Liên hệ</a></li>
-            </ul>
-        </nav>
-    </header>
+        <ul id="nav-links">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="#about">Giới thiệu</a></li>
+            <li><a href="#products">Sản phẩm</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+    </nav>
+</header>
 
     <section class="banner">
         <div class="banner-content">
@@ -76,71 +79,91 @@ Trong thời gian tới, chúng tôi tiếp tục lấy chất lượng làm c�
 
     <section id="products" class="section">
         <h2>Một số sản phẩm nổi bật</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="./img/product1.jpg" alt="Khóa cửa thông minh tích hợp công nghệ vân tay">
-                <h3>Khóa cửa thông minh</h3>
-                <p>Khóa cửa tích hợp công nghệ vân tay và mã số.</p>
-            </div>
-            <div class="product-card">
-                <img src="./img/product2.jpg" alt="Khóa cửa chống trộm thiết kế chắc chắn">
-                <h3>Khóa cửa chống trộm</h3>
-                <p>Độ bền cao, thiết kế chắc chắn, an toàn tuyệt đối.</p>
-            </div>
-            <div class="product-card">
-                <img src="./img/product3.jpg" alt="Khóa cửa điện tử điều khiển từ xa">
-                <h3>Khóa cửa điện tử</h3>
-                <p>Điều khiển từ xa, tích hợp ứng dụng di động.</p>
-            </div>
-            <div class="product-card">
-                <img src="./img/product4.jpg" alt="Khóa cửa cơ học cao cấp">
-                <h3>Khóa cửa cơ học</h3>
-                <p>Thiết kế truyền thống, bền bỉ, phù hợp cho mọi không gian.</p>
-            </div>
-            <div class="product-card">
-                <img src="./img/product5.jpg" alt="Khóa cửa chống cháy">
-                <h3>Khóa cửa chống cháy</h3>
-                <p>Đạt tiêu chuẩn chống cháy, bảo vệ an toàn tối đa.</p>
-            </div>
-        </div>
+<div class="product-grid">
+    <a href="http://www.zsxjj.com/product/8.html" class="product-card">
+        <img src="./img/product1.jpg" alt="K5572H Silent Lock Body/Rounded Corner">
+        <h3>Lock body</h3>
+        <p>K5572H Silent Lock Body/Rounded Corner</p>
+    </a>
+    <a href="http://www.zsxjj.com/product/76.html" class="product-card">
+        <img src="./img/product2.jpg" alt="FS-0211 Silver Stainless Steel Split Lock">
+        <h3>Stainless steel door handle</h3>
+        <p>FS-0211 Silver Stainless Steel Split Lock</p>
+    </a>
+    <a href="http://www.zsxjj.com/product/1327213088905945088.html" class="product-card">
+        <img src="./img/product3.jpg" alt="CK5572F magnetic lock body">
+        <h3>Magnetic lock body</h3>
+        <p>CK5572F magnetic lock body</p>
+    </a>
+    <a href="http://www.zsxjj.com/product/13.html" class="product-card">
+        <img src="./img/product4.jpg" alt="FP-5561 Zinc Alloy Split Lock">
+        <h3>Zinc Alloy Split Lock</h3>
+        <p>FP-5561 Zinc Alloy Split Lock</p>
+    </a>
+    <a href="http://www.zsxjj.com/product/1380576148137226240.html" class="product-card">
+        <img src="./img/product5.jpg" alt="Z3085 Smart Lock Body">
+        <h3>Smart lock - Dedicated lock body</h3>
+        <p>Z3085 Smart Lock Body</p>
+    </a>
+    <a href="http://www.zsxjj.com/product/1350428191796559872.html" class="product-card">
+        <img src="./img/product6.jpg" alt="LP-0239 Aluminum alloy door handle">
+        <h3>Aluminum Alloy Zone</h3>
+        <p>LP-0239 Aluminum alloy door handle</p>
+    </a>
+    <a href="http://www.zsxjj.com/product/41.html" class="product-card">
+        <img src="./img/product7.jpg" alt="BC-12-SL lock cylinder">
+        <h3>Lock cylinder</h3>
+        <p>BC-12-SL lock cylinder</p>
+    </a>
+    <a href="http://www.zsxjj.com/product/22.html" class="product-card">
+        <img src="./img/product8.jpg" alt="BF-1006 Panel Lock">
+        <h3>Panel Lock</h3>
+        <p>BF-1006 Panel Lock</p>
+    </a>
+</div>
         <a href="http://www.zsxjj.com/Lock-body.html" class="btn">Xem thêm</a>
     </section>
 
 <section id="customer-visit" class="section">
-        <h2>Khách hàng của chúng tôi</h2>
-        <div class="customer-visit-carousel">
-            <div class="carousel-container">
-                <div class="carousel-slide">
-                    <img src="./img/customer1.jpg" alt="Customer visit 1">
-                    <p class="caption">Working hand in hand, opening a new chapter | Warmly welcome Indian customers to visit our factory for inspection</p>
-                    <a href="" class="link-placeholder" target="_blank"></a>
-                </div>
-                <div class="carousel-slide">
-                    <img src="./img/customer2.jpg" alt="Customer visit 2">
-                    <p class="caption">Explosive scene! Witnessing the highlights of the exhibition!</p>
-                    <a href="" class="link-placeholder" target="_blank"></a>
-                </div>
-                <div class="carousel-slide">
-                    <img src="./img/customer3.jpg" alt="Customer visit 3">
-                    <p class="caption">Let technology and peace of mind guard</p>
-                    <a href="" class="link-placeholder" target="_blank"></a>
-                </div>
-                <div class="carousel-slide">
-                    <img src="./img/customer4.jpg" alt="Customer visit 4">
-                    <p class="caption">Let technology and peace of mind guard</p>
-                    <a href="" class="link-placeholder" target="_blank"></a>
-                </div>
+    <h2>Khách hàng của chúng tôi</h2>
+    <div class="customer-visit-carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="./img/customer1.jpg" alt="Customer visit 1">
+                <p class="caption">Walking hand in hand, opening a new chapter | Warmly welcome Indian customers to visit our factory for inspection</p>
+                <a href="https://example.com/visit-1" class="link-placeholder" target="_blank"></a>
             </div>
-            <button class="carousel-prev">❮</button>
-            <button class="carousel-next">❯</button>
+            <div class="carousel-slide">
+                <img src="./img/customer2.jpg" alt="Customer visit 2">
+                <p class="caption">Explosive scene! Witnessing the highlights of the exhibition!</p>
+                <a href="https://example.com/visit-2" class="link-placeholder" target="_blank"></a>
+            </div>
+            <div class="carousel-slide">
+                <img src="./img/customer3.jpg" alt="Customer visit 3">
+                <p class="caption">Guess which part of our factory customers care about most? The answer is revealed! 2025.4.21</p>
+                <a href="https://example.com/visit-3" class="link-placeholder" target="_blank"></a>
+            </div>
+            <div class="carousel-slide">
+                <img src="./img/customer4.jpg" alt="Customer visit 4">
+                <p class="caption">Client Testimonial | On-site Visit Record: Behind-the-Scenes Footage Released 2024.02.28</p>
+                <a href="https://example.com/visit-4" class="link-placeholder" target="_blank"></a>
+            </div>
+            <div class="carousel-slide">
+                <img src="./img/customer5.jpg" alt="Customer visit 4">
+                <p class="caption">Witnessing Our Dedicated Manufacturing: A Bangladeshi Client's Visit to Our Workshop on 2025.4.26</p>
+                <a href="https://example.com/visit-4" class="link-placeholder" target="_blank"></a>
+            </div>
         </div>
-    </section>
+        <button class="carousel-prev">❮</button>
+        <button class="carousel-next">❯</button>
+    </div>
+</section>
 
     <section id="contact" class="section">
         <h2>Liên hệ</h2>
         <p>Liên hệ với chúng tôi qua các kênh sau:</p>
         <ul class="contact-links">
-            <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+            <li><a href="https://www.facebook.com/TiengTrungLiangyou" target="_blank">Facebook</a></li>
             <li><a href="https://zalo.me" target="_blank">Zalo</a></li>
             <li><a href="mailto:yuenanxinjj@gmail.com">Email: yuenanxinjj@gmail.com</a></li>
             <li><a href="tel:+84356089408">Hotline: 0356 089 408</a></li>
@@ -154,7 +177,7 @@ Trong thời gian tới, chúng tôi tiếp tục lấy chất lượng làm c�
             <a href="tel:+84356089408" class="contact-item call">
                 <img src="./img/phone.jpg" alt="Phone">
             </a>
-            <a href="https://facebook.com" class="contact-item facebook">
+            <a href="https://www.facebook.com/TiengTrungLiangyou" class="contact-item facebook">
                 <img src="./img/fb.jpg" alt="Facebook">
             </a>
             <a href="https://zalo.me" class="contact-item zalo">
