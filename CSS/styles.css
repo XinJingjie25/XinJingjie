@@ -159,6 +159,7 @@ header {
         font-size: 20px;
     }
 }
+
 .banner {
     height: 100vh;
     position: relative;
@@ -212,6 +213,76 @@ header {
     letter-spacing: clamp(1px, 0.5vw, 2px);
     color: #ffffff;
     animation: slideIn 1.5s ease-out;
+}
+
+
+
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slogan-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    padding: clamp(8px, 2vw, 12px) clamp(15px, 3vw, 20px);
+    border-radius: 10px;
+    margin: 12px auto;
+    max-width: 500px;
+    min-height: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideUpFadeIn 1.5s ease-out 0.5s;
+    animation-fill-mode: backwards;
+}
+
+.slogan {
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-weight: 500;
+    color: #FFFFFF;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    animation: slideUpFadeIn 1.5s ease-out 0.5s;
+    animation-fill-mode: backwards;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    width: 100%;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .slogan-container {
+        padding: clamp(6px, 1.8vw, 10px) clamp(12px, 3vw, 18px);
+        border-width: 1.5px;
+        max-width: 400px;
+        min-height: 36px;
+    }
+
+    .slogan {
+        font-size: clamp(0.9rem, 2.6vw, 1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .slogan-container {
+        padding: clamp(5px, 1.5vw, 8px) clamp(10px, 2.5vw, 15px);
+        max-width: 80%;
+        min-height: 32px;
+        border-width: 1px;
+    }
+
+    .slogan {
+        font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+    }
 }
 
 .banner-content .btn {
@@ -652,6 +723,7 @@ footer {
     box-sizing: border-box;
     text-align: center;
     padding: 0;
+    cursor: pointer;
 }
 
 .carousel-slide img {
@@ -684,7 +756,7 @@ footer {
 
 .carousel-prev, .carousel-next {
     position: absolute;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     background-color: rgba(190, 37, 62, 0.7);
     color: #fff;
@@ -692,8 +764,9 @@ footer {
     padding: 10px;
     cursor: pointer;
     z-index: 10;
-    font-size: 18px;
+    font-size: 22px;
     transition: background-color 0.3s ease-in-out;
+    border-radius: 10px;
 }
 
 .carousel-prev:hover, .carousel-next:hover {
@@ -746,13 +819,13 @@ footer {
 }
 
 .contact-toggle img {
-    width: 40px;
-    height: 40px;
+    width: 43px;
+    height: 43px;
 }
 
 .contact-toggle:hover {
-    transform: scale(1.1);
-    background-color: #6f7276;
+    transform: scale(1.5);
+    background-color: #000000;
     animation-play-state: paused;
 }
 
