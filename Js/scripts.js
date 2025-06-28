@@ -95,6 +95,19 @@ document.addEventListener('DOMContentLoaded', () => {
     stats.forEach(stat => observer.observe(stat));
 });
 
+//buttom sản Phẩm animation
+document.querySelector('.btn-product').addEventListener('click', (event) => {
+    event.preventDefault();
+    const targetId = event.currentTarget.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+        window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+        });
+    }
+});
+
 // Company intro slideshow
 document.addEventListener('DOMContentLoaded', () => {
     const slider = document.querySelector('.image-slider');

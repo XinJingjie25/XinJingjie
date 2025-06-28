@@ -1,3 +1,10 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
@@ -20,6 +27,15 @@ header {
     box-sizing: border-box;
 }
 
+h2 {
+    padding-bottom: 30px;
+}
+
+#about {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 .logo img {
     display: block;
     max-width: 150px;
@@ -37,6 +53,7 @@ header {
     gap: 30px;
     margin: 0;
     padding: 0;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
 }
 
 .nav-menu a {
@@ -82,7 +99,7 @@ header {
 
 .hamburger.active .hamburger-icon {
     opacity: 0;
-    transform: rotate(90deg);
+    transform:matrix3d(15px);
 }
 
 .hamburger.active .close-icon {
@@ -91,15 +108,43 @@ header {
     transform: rotate(0deg);
 }
 
-.nav-menu ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+/* Hiệu ứng animation cho menu khi mở */
+@keyframes slideInMenu {
+    from {
+        opacity: 0;
+        right: -100%;
+    }
+    to {
+        opacity: 1;
+        right: 0;
+    }
 }
 
+/* Hiệu ứng animation cho menu khi đóng */
+@keyframes slideOutMenu {
+    from {
+        opacity: 1;
+        right: 0;
+    }
+    to {
+        opacity: 0;
+        right: -100%;
+    }
+}
+
+/* Hiệu ứng animation cho từng liên kết */
+@keyframes slideInLink {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive menu for mobile */
 @media (max-width: 768px) {
     .nav-menu ul {
         display: none;
@@ -109,56 +154,87 @@ header {
         right: -100%;
         height: 100vh;
         width: 280px;
-        background-color: #ffffff;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(240, 240, 240, 0.2)); /* Nền trong suốt hơn */
         box-shadow: -5px 0 15px rgba(51, 51, 51, 0.2);
         padding: 80px 20px 20px;
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 999;
+        border-radius: 0 0 0 15px;
+        backdrop-filter: blur(7px); /* Giữ hiệu ứng mờ nền */
     }
 
     .nav-menu ul.active {
         display: flex;
-        right: 0;
-        opacity: 1;
+        animation: slideInMenu 0.4s ease-in-out forwards;
+    }
+
+    .nav-menu ul:not(.active) {
+        animation: slideOutMenu 0.4s ease-in-out forwards;
     }
 
     .nav-menu a {
         font-size: 18px;
-        padding: 15px 20px;
-        margin: 5px 0;
+        padding: 12px 20px;
+        margin: 8px 10px;
         display: block;
         text-align: left;
-        color: #333333;
-        border-radius: 8px;
-        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        color: #fefefe;
+        border-radius: 10px;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        opacity: 0;
+        transform: translateX(20px);
+        animation: slideInLink 0.3s ease-in-out forwards;
+        background: rgba(171, 42, 42, 0.8);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        font-weight: 600; 
+        letter-spacing: 0.5px; 
     }
 
     .nav-menu a:hover {
         background-color: #be253e;
         color: #ffffff;
         transform: translateX(10px);
+        box-shadow: 0 4px 10px rgba(190, 37, 62, 0.3); 
     }
+
+    /* Delay cho từng liên kết để tạo hiệu ứng lan tỏa */
+    .nav-menu ul.active a:nth-child(1) { animation-delay: 0.1s; }
+    .nav-menu ul.active a:nth-child(2) { animation-delay: 0.2s; }
+    .nav-menu ul.active a:nth-child(3) { animation-delay: 0.3s; }
+    .nav-menu ul.active a:nth-child(4) { animation-delay: 0.4s; }
 
     .hamburger {
         display: block;
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 8px 12px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .hamburger:hover {
+        background-color: #f0f0f0;
+        transform: scale(1.1);
     }
 }
 
 @media (max-width: 480px) {
     .nav-menu ul {
-        width: 200px;
+        width: 220px;
         padding: 60px 15px 15px;
     }
 
     .nav-menu a {
         font-size: 16px;
         padding: 10px 15px;
+        margin: 5px 8px;
     }
 
     .hamburger {
         font-size: 20px;
+        padding: 6px 10px;
     }
 }
+
 
 .banner {
     height: 100vh;
@@ -275,7 +351,7 @@ header {
 @media (max-width: 480px) {
     .slogan-container {
         padding: clamp(5px, 1.5vw, 8px) clamp(10px, 2.5vw, 15px);
-        max-width: 80%;
+        max-width: 90%;
         min-height: 32px;
         border-width: 1px;
     }
@@ -310,6 +386,7 @@ header {
     transform: scale(1.08);
     box-shadow: 0 6px 15px rgba(190, 37, 62, 0.6);
 }
+
 
 .btn-product {
     position: relative;
@@ -501,7 +578,7 @@ header {
     }
 
     .stat-icon {
-        font-size: 20px; 
+        font-size: 25px; 
     }
 
     .stat-number {
@@ -519,7 +596,7 @@ header {
     }
 
     .stat-item {
-        min-width: 80px; /* Giảm độ rộng tối thiểu hơn nữa */
+        min-width: 80px; 
         padding: 3px;
     }
 
@@ -578,6 +655,7 @@ header {
     margin-bottom: 40px;
     color: #333333;
 }
+
 
 .product-grid {
     display: grid;
@@ -724,6 +802,7 @@ footer {
     text-align: center;
     padding: 0;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .carousel-slide img {
