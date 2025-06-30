@@ -323,7 +323,7 @@ h2 {
 .slogan {
     font-family: 'Roboto', sans-serif;
     font-size: clamp(1rem, 3vw, 1.2rem);
-    font-weight: 500;
+    font-weight: 100;
     color: #FFFFFF;
     margin: 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
@@ -351,7 +351,7 @@ h2 {
 @media (max-width: 480px) {
     .slogan-container {
         padding: clamp(5px, 1.5vw, 8px) clamp(10px, 2.5vw, 15px);
-        max-width: 90%;
+        max-width: 65%;
         min-height: 32px;
         border-width: 1px;
     }
