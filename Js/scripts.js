@@ -250,22 +250,24 @@ function isMobile() {
     return window.innerWidth <= 768;
 }
 
-// Toggle cho cả desktop và mobile
+// Toggle chỉ áp dụng trên mobile
 toggleButton.addEventListener('click', () => {
-    contactList.classList.toggle('active');
-    toggleButton.classList.toggle('active');
+    if (isMobile()) {
+        contactList.classList.toggle('active');
+        toggleButton.classList.toggle('active');
+    }
 });
 
-// Đảm bảo contact-list hiển thị mặc định trên mọi kích thước khi tải trang
-contactList.classList.add('active');
+// Đảm bảo contact-list hiển thị trên desktop khi tải trang
+if (!isMobile()) {
+    contactList.classList.add('active');
+}
 
 // Cập nhật trạng thái khi thay đổi kích thước màn hình
 window.addEventListener('resize', () => {
-    if (isMobile() && contactList.classList.contains('active')) {
-        contactList.classList.remove('active');
-        toggleButton.classList.remove('active');
-    } else if (!isMobile() && !contactList.classList.contains('active')) {
+    if (!isMobile() && !contactList.classList.contains('active')) {
         contactList.classList.add('active');
-        toggleButton.classList.add('active');
+    } else if (isMobile() && contactList.classList.contains('active')) {
+        contactList.classList.remove('active');
     }
 });
