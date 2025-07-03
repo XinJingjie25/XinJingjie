@@ -154,12 +154,12 @@ h2 {
         right: -100%;
         height: 100vh;
         width: 280px;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(240, 240, 240, 0.2)); /* Nền trong suốt hơn */
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(240, 240, 240, 0.2));
         box-shadow: -5px 0 15px rgba(51, 51, 51, 0.2);
         padding: 80px 20px 20px;
         z-index: 999;
         border-radius: 0 0 0 15px;
-        backdrop-filter: blur(7px); /* Giữ hiệu ứng mờ nền */
+        backdrop-filter: blur(7px);
     }
 
     .nav-menu ul.active {
@@ -184,16 +184,16 @@ h2 {
         transform: translateX(20px);
         animation: slideInLink 0.3s ease-in-out forwards;
         background: rgba(171, 42, 42, 0.8);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-        font-weight: 600; 
-        letter-spacing: 0.5px; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        font-weight: 600;
+        letter-spacing: 0.5px;
     }
 
     .nav-menu a:hover {
         background-color: #be253e;
         color: #ffffff;
         transform: translateX(10px);
-        box-shadow: 0 4px 10px rgba(190, 37, 62, 0.3); 
+        box-shadow: 0 4px 10px rgba(190, 37, 62, 0.3);
     }
 
     /* Delay cho từng liên kết để tạo hiệu ứng lan tỏa */
@@ -234,7 +234,6 @@ h2 {
         padding: 6px 10px;
     }
 }
-
 
 .banner {
     height: 100vh;
@@ -280,7 +279,7 @@ h2 {
     padding: 20px;
 }
 
-.banner-content h1 {
+.banner-content h1.title-with-lines {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: clamp(2rem, 8vw, 3rem);
@@ -288,79 +287,104 @@ h2 {
     text-transform: uppercase;
     letter-spacing: clamp(1px, 0.5vw, 2px);
     color: #ffffff;
+    position: relative;
     animation: slideIn 1.5s ease-out;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
+.title-with-lines::before, .title-with-lines::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.3), #ffffff, rgba(255, 255, 255, 0.3)); 
+    border-radius: 1px; 
+}
 
+.title-with-lines::before {
+    top: -10px;
+}
 
-@keyframes slideUpFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.title-with-lines::after {
+    bottom: -10px;
 }
 
 .slogan-container {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.6);
-    padding: clamp(8px, 2vw, 12px) clamp(15px, 3vw, 20px);
-    border-radius: 10px;
-    margin: 12px auto;
-    max-width: 500px;
-    min-height: 40px;
-    text-align: center;
     display: flex;
     justify-content: center;
-    align-items: center;
-    animation: slideUpFadeIn 1.5s ease-out 0.5s;
-    animation-fill-mode: backwards;
+    gap: 15px;
+    margin: 12px auto;
+    max-width: 900px;
 }
 
 .slogan {
-    font-family: 'Roboto', sans-serif;
-    font-size: clamp(1rem, 3vw, 1.2rem);
-    font-weight: 100;
+    font-family: 'Lora', serif; 
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    font-weight: 200; 
     color: #FFFFFF;
     margin: 0;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); 
     animation: slideUpFadeIn 1.5s ease-out 0.5s;
     animation-fill-mode: backwards;
-    letter-spacing: 0.5px;
-    line-height: 1.4;
-    width: 100%;
+    letter-spacing: 0.8px; 
+    line-height: 1.5; 
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    padding: 10px 10px;
+    border-radius: 0;
+    flex: 0 0 auto;
     text-align: center;
+    min-width: 150px;
+    max-width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%); 
+}
+
+@media (max-width: 1024px) {
+    .slogan {
+        font-size: clamp(0.85rem, 2.2vw, 1.1rem);
+        padding: 8px 12px;
+        min-width: 130px;
+        max-width: 180px;
+        height: 45px;
+        clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    }
+    .slogan-container {
+        gap: 12px;
+    }
 }
 
 @media (max-width: 768px) {
-    .slogan-container {
-        padding: clamp(6px, 1.8vw, 10px) clamp(12px, 3vw, 18px);
-        border-width: 1.5px;
-        max-width: 400px;
-        min-height: 36px;
-    }
-
     .slogan {
-        font-size: clamp(0.9rem, 2.6vw, 1rem);
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        padding: 6px 10px;
+        min-width: 110px;
+        max-width: 150px;
+        height: 40px;
+        clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    }
+    .slogan-container {
+        gap: 10px;
     }
 }
 
 @media (max-width: 480px) {
-    .slogan-container {
-        padding: clamp(5px, 1.5vw, 8px) clamp(10px, 2.5vw, 15px);
-        max-width: 65%;
-        min-height: 32px;
-        border-width: 1px;
-    }
-
     .slogan {
-        font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+        font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+        padding: 5px 8px;
+        min-width: 90px;
+        max-width: 120px;
+        height: 35px;
+        clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    }
+    .slogan-container {
+        gap: 8px;
     }
 }
-
 .banner-content .btn {
     margin-top: clamp(20px, 5vw, 30px);
     animation: slideIn 1.5s ease-out 0.3s;
@@ -387,7 +411,6 @@ h2 {
     box-shadow: 0 6px 15px rgba(190, 37, 62, 0.6);
 }
 
-
 .btn-product {
     position: relative;
     overflow: hidden;
@@ -411,7 +434,6 @@ h2 {
 .product-card {
     text-decoration: none;
 }
-
 
 .section {
     padding: 60px 20px;
@@ -509,9 +531,7 @@ h2 {
     gap: 20px;
     margin: 0 auto;
     max-width: 1200px;
-
 }
-
 
 @media (max-width: 1200px) {
     .intro-content {
@@ -544,7 +564,6 @@ h2 {
     text-align: center;
     flex: 1;
     padding: 10px;
-
 }
 
 .stat-icon {
@@ -568,25 +587,25 @@ h2 {
 
 @media (max-width: 1500px) {
     .company-stats {
-        flex-wrap: nowrap; 
+        flex-wrap: nowrap;
     }
 
     .stat-item {
-        flex: 0 1 auto; 
-        min-width: 100px; 
+        flex: 0 1 auto;
+        min-width: 100px;
         padding: 5px;
     }
 
     .stat-icon {
-        font-size: 25px; 
+        font-size: 25px;
     }
 
     .stat-number {
-        font-size: 28px; 
+        font-size: 28px;
     }
 
     .stat-item p {
-        font-size: 12px; 
+        font-size: 12px;
     }
 }
 
@@ -596,7 +615,7 @@ h2 {
     }
 
     .stat-item {
-        min-width: 80px; 
+        min-width: 80px;
         padding: 3px;
     }
 
@@ -655,7 +674,6 @@ h2 {
     margin-bottom: 40px;
     color: #333333;
 }
-
 
 .product-grid {
     display: grid;
@@ -747,7 +765,7 @@ h2 {
 
 }
 #products .btn {
-    margin-top: 40px; 
+    margin-top: 40px;
 }
 
 .contact-links {
@@ -792,12 +810,12 @@ footer {
 .carousel-container {
     display: flex;
     transition: transform 0.6s ease-in-out;
-    gap: 20px; /* Khoảng cách đều giữa các ảnh */
+    gap: 20px;
 }
 
 .carousel-slide {
     min-width: 0;
-    flex: 0 0 calc(33.33% - 13.33px); /* Căn đều với gap, điều chỉnh cho 3 ảnh */
+    flex: 0 0 calc(33.33% - 13.33px);
     box-sizing: border-box;
     text-align: center;
     padding: 0;
@@ -859,12 +877,7 @@ footer {
 .carousel-next {
     right: 10px;
 }
-/* Reset CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 /* Reset CSS */
 * {
     margin: 0;
@@ -920,14 +933,19 @@ footer {
     position: absolute;
     bottom: 60px;
     right: 0;
-    display: none;
+    display: flex; /* Luôn hiển thị trên mọi kích thước màn hình */
     flex-direction: column;
     gap: 10px;
 }
 
-/* Hiển thị khi active */
-.contact-list.active {
-    display: flex;
+/* Ẩn contact-list khi toggle trên mobile */
+@media (max-width: 768px) {
+    .contact-list {
+        display: none; /* Ẩn mặc định trên mobile */
+    }
+    .contact-list.active {
+        display: flex; /* Hiển thị khi nhấn toggle trên mobile */
+    }
 }
 
 /* Mỗi nút liên hệ */
@@ -977,12 +995,11 @@ footer {
     }
 }
 
-/* Kích hoạt khi hiện */
+/* Kích hoạt animation khi hiện hoặc ẩn */
 .contact-list.active .contact-item {
     animation: slideFadeIn 0.3s ease-in-out forwards;
 }
 
-/* Kích hoạt khi thu hồi */
 .contact-list:not(.active) .contact-item {
     animation: slideFadeOut 0.4s ease-in-out forwards;
 }
@@ -997,27 +1014,18 @@ footer {
 .contact-list:not(.active) .contact-item:nth-child(2) { animation-delay: 0.1s; }
 .contact-list:not(.active) .contact-item:nth-child(3) { animation-delay: 0.05s; }
 
-
-
-/* Hiệu ứng animation khi hover */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
 .contact-item:hover {
     animation: pulse 0.5s infinite;
 }
 @media (max-width: 768px) {
     .carousel-slide {
-        flex: 0 0 calc(50% - 10px); /* Căn đều cho 2 ảnh trên mobile */
+        flex: 0 0 calc(50% - 10px);
     }
     .carousel-slide img {
         max-width: 100%;
     }
     .carousel-container {
-        gap: 10px; /* Giảm khoảng cách trên mobile */
+        gap: 10px;
     }
 }
 
@@ -1052,6 +1060,17 @@ footer {
     }
 }
 
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @keyframes countUp {
     from {
         opacity: 0;
@@ -1063,6 +1082,6 @@ footer {
 
 @media (max-width: 960px) {
     .carousel-slide {
-        flex: 0 0 calc(50% - 10px); 
+        flex: 0 0 calc(50% - 10px);
     }
 }

@@ -245,7 +245,27 @@ document.addEventListener('DOMContentLoaded', () => {
 const toggleButton = document.querySelector('.contact-toggle');
 const contactList = document.querySelector('.contact-list');
 
+// Hàm kiểm tra kích thước màn hình
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
+// Toggle cho cả desktop và mobile
 toggleButton.addEventListener('click', () => {
     contactList.classList.toggle('active');
     toggleButton.classList.toggle('active');
+});
+
+// Đảm bảo contact-list hiển thị mặc định trên mọi kích thước khi tải trang
+contactList.classList.add('active');
+
+// Cập nhật trạng thái khi thay đổi kích thước màn hình
+window.addEventListener('resize', () => {
+    if (isMobile() && contactList.classList.contains('active')) {
+        contactList.classList.remove('active');
+        toggleButton.classList.remove('active');
+    } else if (!isMobile() && !contactList.classList.contains('active')) {
+        contactList.classList.add('active');
+        toggleButton.classList.add('active');
+    }
 });
