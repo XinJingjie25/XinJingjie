@@ -271,3 +271,51 @@ window.addEventListener('resize', () => {
         contactList.classList.remove('active');
     }
 });
+
+//Mặt hàng kinh doanh
+        let slideIndex = 1;
+        let timeout;
+        const totalSlides = 9; // Number of unique slides
+
+        function showSlides(n) {
+            let wrapper = document.querySelector(".slides-wrapper");
+            let dots = document.getElementsByClassName("dot");
+
+            // Adjust slideIndex for looping
+            if (n > totalSlides) {
+                slideIndex = 1;
+                wrapper.style.transition = "none";
+                wrapper.style.transform = `translateX(0%)`;
+                setTimeout(() => {
+                    wrapper.style.transition = "transform 0.6s ease-in-out";
+                    wrapper.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+                }, 50);
+            } else if (n < 1) {
+                slideIndex = totalSlides;
+                wrapper.style.transition = "none";
+                wrapper.style.transform = `translateX(-${totalSlides * 100}%)`;
+                setTimeout(() => {
+                    wrapper.style.transition = "transform 0.6s ease-in-out";
+                    wrapper.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+                }, 50);
+            } else {
+                wrapper.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+            }
+
+            // Update dots
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            dots[(slideIndex - 1) % totalSlides].classList.add("active");
+
+            clearTimeout(timeout);
+            timeout = setTimeout(() => showSlides(slideIndex += 1), 3000);
+        }
+
+        function currentSlide(n) {
+            slideIndex = n;
+            showSlides(slideIndex);
+        }
+
+        showSlides(slideIndex);
+   
