@@ -322,14 +322,14 @@ h2 {
     font-family: 'Lora', serif;
     font-size: clamp(0.9rem, 2.5vw, 1.2rem);
     font-weight: 600;
-    color: #8d8a8a;
+    color: #ffffff;
     margin: 0;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
     animation: slideUpFadeIn 1.5s ease-out 0.5s;
     animation-fill-mode: backwards;
     letter-spacing: 0.8px;
     line-height: 1.5;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(171, 171, 171);
     border: 1px solid rgba(255, 255, 255, 0.6);
     padding: 10px 10px;
     border-radius: 0;
